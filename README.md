@@ -15,9 +15,11 @@ A: db.people.insertOne({first_name: "NewPerson", last_name: "LastName", email: "
 
 A: db.people.insertOne({first_name: "NewPerson2", last_name: "LastName2", email: "email@email.com", gender: "Male", age: 35, state: "Michigan", children: [{name: "Kid1", age: 4}, {name: "Kid2", age: 8}]});
 
+
 3: Update one person named Clarence. He moved from North Dakota to South Dakota.
 
 A: db.people.updateOne({first_name: "Clarence"}, {$set: {state: "South Dakota"}});
+
 
 4: Update Rebecca Hayes. Remove her email address.
 
@@ -28,6 +30,7 @@ A: db.people.updateOne({_id: ObjectId("61f3694f2a1a01cf4a64dbc3")}, {$unset: {em
 
 A: db.people.updateMany({state: "Missouri"}, {$inc: {age: 1}});
 
+
 6: Jerry Baker has updated information. Replace with a new document:
 { first_name: "Jerry", last_name: "Baker-Mendez", email: "jerry@classic.ly", gender:"Male", age: 28, state: "Vermont", "children": [{name: "Alan", age: 18}, {name: "Jenny", age: 3}] }
 
@@ -37,6 +40,7 @@ A: db.people.updateOne({_id: ObjectId("61f3694f2a1a01cf4a64dc11")},{$set: {first
 7: Delete Wanda Bowman.
 
 A: db.people.deleteOne({_id: ObjectId("61f3694f2a1a01cf4a64dbe9")});
+
 
 8: Delete everyone who does not have an email address specified. (expect 36 matches - maybe more depending what you added above)
 
@@ -60,9 +64,11 @@ A: db.submissions.insertMany([
 {title: "Non Sequitur", upvotes: 11, downvotes: 1, artist: ObjectId("61f3694f2a1a01cf4a64db90")}
 ]);
 
+
 10: Add 2 upvotes for "The River Bend".
 
 A: db.submissions.updateOne({title: "The River Bend"}, {$inc: {upvotes: 2}});
+
 
 11: Add a field round2 = true to all submissions with at least 10 upvotes. (expect 3 matches)
 
@@ -73,6 +79,7 @@ Extended Challenges:
 12: Update Helen Clark. She had a baby! Add a child, name: Melanie, age: 0.
 
 A: db.people.updateOne({_id: ObjectId("61f3694f2a1a01cf4a64dc4e")}, { $push: { children: { name: 'Melanie', age: 0 }} });
+
 
 13: Joan Bishop has a child named Catherine. She just had a birthday and prefers to go by "Cat". In one query update the child's name to "Cat" and increment her age by one.
 
@@ -88,6 +95,7 @@ A: db.people.updateOne(
       }
    }
 )
+
 
 14: List all submissions that have more downvotes than upvotes.
 
