@@ -40,6 +40,21 @@ Lab 1 part 1
 
 		A: db.people.find( {email: /\.edu$/},{email:1} );
 
+Extended Challenges:
+
+14. Count all people with at least one child under age four. (69)
+
+      A: db.people.find( {'children.age': {$lt: 4}} ).count()
+
+15. List people who have no children. (43)
+
+      A: db.people.find({children: []});
+
+16. List people who have at least one child. (157)
+
+      A: db.people.find({children: {$ne: []}});
+
+
 
 
 MONGODB LAB 1 (PART 2 - DATA MANIPULATION)
